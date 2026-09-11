@@ -9,14 +9,14 @@ html {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  color: white;
-  background-color: #295135;
+  color: #295135;
+  background-color: #EFEAE4;
   border-radius: 100px;
   margin: 20px auto;
   padding: 10px;
   text-align: center;
-  height: 100px;
-  width: 100px;
+  height: 110px;
+  width: 110px;
 }
 .fa-facebook, .fa-twitter {
   background: #295135;
