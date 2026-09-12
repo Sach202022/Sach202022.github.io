@@ -17,6 +17,7 @@ html {
   text-align: center;
   height: 130px;
   width: 130px;
+  text-decoration: bold;
 }
 .subtitle {
   justify-content: center;
