@@ -659,7 +659,7 @@ nav a:hover {
 
   background-image:
     url(
-      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ""https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D""
     );
 
 }
@@ -677,7 +677,7 @@ nav a:hover {
 
   background-image:
     url(
-      "https://plus.unsplash.com/premium_photo-1661434642905-27ad958bab4a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      ""https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D""
     );
 
 }
@@ -1603,10 +1603,8 @@ footer {
 
       <p>
 
-        Explore treatments designed around relaxation,
-        beauty, massage and wellbeing. Contact us through
-        Instagram for current treatment details and
-        availability.
+        Explore treatments designed around tailored care, gentle techniques, and deep restoration. Every treatment is a complete sensory experience, crafted to help you unwind and rebalance.
+
 
       </p>
 
@@ -1625,7 +1623,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Aromatherapy Massage
+            Premium Facial Treatment
           </h3>
 
           <p>
@@ -1647,7 +1645,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Deep Tissue Massage
+            Relaxation Massage
           </h3>
 
           <p>
@@ -1669,7 +1667,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Foot Treatment & Massage
+            Hot Stone Massage
           </h3>
 
           <p>
@@ -1690,7 +1688,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Reflexology Massage
+            Pregnancy Massage
           </h3>
 
           <p>
@@ -1712,7 +1710,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Remedial Massage
+            Reiki Healing
           </h3>
 
           <p>
@@ -1734,7 +1732,7 @@ footer {
         <div class="card-body">
 
           <h3>
-            Pregnancy Massage
+            Packages
           </h3>
 
           <p>
@@ -1744,6 +1742,50 @@ footer {
         </div>
 
       </article>
+
+      <!-- 1 -->
+
+      <article class="card">
+
+        <div class="card-img"></div>
+
+        <div class="card-body">
+
+          <h3>
+            Premium Facial Treatment
+          </h3>
+
+          <p>
+            Relaxing massage with an aromatic
+            wellness focus.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- 1 -->
+
+      <article class="card">
+
+        <div class="card-img"></div>
+
+        <div class="card-body">
+
+          <h3>
+            Premium Facial Treatment
+          </h3>
+
+          <p>
+            Relaxing massage with an aromatic
+            wellness focus.
+          </p>
+
+        </div>
+
+      </article>
+
+
 
 
     </div>
@@ -2023,79 +2065,46 @@ footer {
 ========================================= -->
 
 <script>
-
-
 /* =========================================
    MOBILE MENU
+   Works on GitHub Pages and closes after navigation.
 ========================================= */
+(function () {
+  "use strict";
 
-const menuBtn = document.getElementById("menuBtn");
-const mobileNav = document.getElementById("mobileNav");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
 
-menuBtn.addEventListener("click", function () {
-  const isOpen = mobileNav.classList.toggle("show");
+  if (!menuBtn || !mobileNav) return;
 
-  menuBtn.textContent = isOpen ? "✕" : "☰";
-  menuBtn.setAttribute("aria-expanded", isOpen);
-  menuBtn.setAttribute(
-    "aria-label",
-    isOpen ? "Close menu" : "Open menu"
-  );
-});
-
-document.querySelectorAll("#mobileNav a").forEach(function (link) {
-  link.addEventListener("click", function () {
-    mobileNav.classList.remove("show");
-    menuBtn.textContent = "☰";
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.setAttribute("aria-label", "Open menu");
-  });
-});
-
-
-
-
-    /* COPY MESSAGE */
-
-    try {
-
-      await navigator.clipboard.writeText(
-        bookingText
-      );
-
-
-      toast.classList.add("show");
-
-
-      setTimeout(function () {
-
-        toast.classList.remove("show");
-
-      }, 3500);
-
-
-    } catch (error) {
-
-      prompt(
-        "Copy this booking message:",
-        bookingText
-      );
-
-    }
-
-
-    /* OPEN INSTAGRAM */
-
-    window.open(
-      "https://www.instagram.com/thegardensparoom/",
-      "_blank",
-      "noopener"
-    );
-
+  function setMenuOpen(isOpen) {
+    mobileNav.classList.toggle("show", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+    menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   }
 
-);
+  menuBtn.addEventListener("click", function () {
+    const isOpen = menuBtn.getAttribute("aria-expanded") !== "true";
+    setMenuOpen(isOpen);
+  });
 
+  mobileNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      setMenuOpen(false);
+    });
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 900) setMenuOpen(false);
+  });
+
+  setMenuOpen(false);
+})();
 </script>
 
 
